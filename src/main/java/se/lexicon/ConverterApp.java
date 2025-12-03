@@ -26,6 +26,9 @@ public class ConverterApp {
 
     void main(){
 
+        int option;
+
+        do {
 
 
         System.out.println("===Converter App===");
@@ -35,13 +38,14 @@ public class ConverterApp {
         System.out.println("4.Exit");
         System.out.println("Choose an option:");
 
+        option = scanner.nextInt();// must be here to display the options
 
-        int option = scanner.nextInt();
+
 
         switch (option){// will choose from the options and convert
             case 1:
                 lengthConverter(scanner);
-                break;
+               break;// to stop java from continuing calculations;
 
             case 2:
                 currencyConverter(scanner);
@@ -49,17 +53,22 @@ public class ConverterApp {
 
             case 3:
                 weightConverter(scanner);
-                break;
+               break;
+
+            case 4:
+
+                System.out.println("Goodbye!");
+                break;//stops the loop
+
 
             default:
-                System.out.println("Invalid option. Please choose option 1 2 or 3: ");
-
+                System.out.println("Invalid option");
 
         }
 
 
-
-
+        }
+        while (option!=4);
 
 
     }
