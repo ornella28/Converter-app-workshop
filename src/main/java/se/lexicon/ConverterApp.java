@@ -38,6 +38,12 @@ public class ConverterApp {
         System.out.println("4.Exit");
         System.out.println("Choose an option:");
 
+        while (!scanner.hasNextInt()) {// A user must put an int
+            System.out.println("Invalid input. Please choose from option 1 2 3 4: ");
+            scanner.next();// throws away a bad input
+            System.out.println("Enter your option");
+        }
+
         option = scanner.nextInt();// must be here to display the options
 
 
@@ -62,7 +68,7 @@ public class ConverterApp {
 
 
             default:
-                System.out.println("Invalid option");
+                System.out.println("Invalid option. Please choose between 1 2 3 4");
 
         }
 
