@@ -81,13 +81,28 @@ public class ConverterApp {
 
     static void lengthConverter(Scanner scanner){
 
-        System.out.println("Input the meters:");
+        do {
+
+            System.out.println("Input the meters:");
+
+
+
+                double meters = scanner.nextDouble();
+                double kilometers = meters/1000;
+                double result = kilometers;
+                System.out.println("Result is: " + meters + " M " +  "= " + result + "KM");
+                LocalDateTime dateTime = LocalDateTime.now();
+                System.out.println("Converted at: " + dateTime);
+
+
+        } while (!scanner.hasNextDouble());
+
+        System.out.println("Invalid meters. Please enter a valid number");
+        scanner.next();
+        System.out.println("Enter meters: ");
         double meters = scanner.nextDouble();
-        double kilometers = meters/1000;
-        double result = kilometers;
-        System.out.println("Result is: " + meters + " M " +  "= " + result + "KM");
-        LocalDateTime dateTime = LocalDateTime.now();
-        System.out.println("Converted at: " + dateTime);
+
+
 
 
 
