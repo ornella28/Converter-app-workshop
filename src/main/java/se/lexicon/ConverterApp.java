@@ -85,8 +85,6 @@ public class ConverterApp {
 
             System.out.println("Input the meters:");
 
-
-
                 double meters = scanner.nextDouble();
                 double kilometers = meters/1000;
                 double result = kilometers;
@@ -95,20 +93,24 @@ public class ConverterApp {
                 System.out.println("Converted at: " + dateTime);
 
 
-        } while (!scanner.hasNextDouble());
+        } while (!scanner.hasNextDouble());{
 
-        System.out.println("Invalid meters. Please enter a valid number");
-        scanner.next();
-        System.out.println("Enter meters: ");
-        double meters = scanner.nextDouble();
+            System.out.println("Invalid meters. Please enter a valid number");
+            scanner.next();
+            System.out.println("Enter meters: ");
 
-
+        }
+        double meters = scanner.nextDouble();//checks input before reading it. important, otherwise it will display an error message if it is not there
 
 
 
     }
 
     static void currencyConverter(Scanner scanner){
+
+        do {
+
+
         System.out.println("Input the amount in SEK");
         double exchangeRateUSD = 0.11;
         double exchangeRateEUR = 0.09;
@@ -123,6 +125,14 @@ public class ConverterApp {
         System.out.println("Result is: " + amountSEK + " SEK "  +  "= " + resultEUR + "EUR");
         LocalDateTime dateTime = LocalDateTime.now();
         System.out.println("Converted at: " + dateTime);
+
+        } while (!scanner.hasNextDouble());{
+            System.out.println("Invalid amount in SEK. Please enter a valid number");
+            scanner.next();
+            System.out.println("Enter amount in SEK: ");
+
+        }
+        double amountSEK = scanner.nextDouble();
 
 
 
