@@ -8,22 +8,6 @@ import java.util.Scanner;
 public class ConverterApp {
     Scanner scanner = new Scanner(System.in);// will collect all the input
 
-
-    //code to be used to handle wrong input
-   /* public static int readOption(Scanner scanner){//code to be used to handle wrong input
-        while (!scanner.hasNextInt()){
-            System.out.println("Invalid option. please option 1 2 or 3: ");
-            scanner.next();//removes bad input
-            System.out.println("Enter an option: ");
-
-
-        }
-        return scanner.nextInt(); // gives back the input
-
-
-
-    }*/
-
     void main(){
 
         int option;
@@ -136,7 +120,7 @@ public class ConverterApp {
                 scanner.next();
                 continue;
             }
-            break;//important, otherwise, i will get error message because the loop never stops
+            break;//important, otherwise, i will get an error message because the loop never stops
         }
 
         double exchangeRateUSD = 0.11;
@@ -157,14 +141,34 @@ public class ConverterApp {
 
 
     static void weightConverter(Scanner scanner){
-        System.out.println("Input the weight in KG:");
-        double kilograms = scanner.nextDouble();
+
+        double kilograms;
+
+        while (true){
+            System.out.println("Input the weight in KG:");
+
+            if (!scanner.hasNextDouble()){
+                System.out.println("Invalid weight. Please enter a valid weight");
+                scanner.next();
+                continue;
+            }
+
+            kilograms = scanner.nextDouble();// important, otherwise i get error message that KG is not initialized or KG will be assigned 0
+
+            if (kilograms<0){
+                System.out.println("The weight cannot be negative. Enter a valid weight ");
+                scanner.next();
+                continue;
+            }
+            break;
+
+        }
+
         double grams = kilograms * 1000;
         double result = grams;
         System.out.println("Result is: " + kilograms + " KG " +  "= " + result + "Grams");
         LocalDateTime dateTime = LocalDateTime.now();
         System.out.println("Converted at: " + dateTime);
-
 
     }
 }
