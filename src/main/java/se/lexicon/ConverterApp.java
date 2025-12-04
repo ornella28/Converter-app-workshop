@@ -81,11 +81,31 @@ public class ConverterApp {
 
     static void lengthConverter(Scanner scanner){
 
-        do {
+        double meters;
 
+        while (true){
             System.out.println("Input the meters:");
 
-                double meters = scanner.nextDouble();
+            if (!scanner.hasNextDouble()){//if the input is not a number
+                System.out.println("Invalid meters");
+                scanner.next();//removes the wrong input
+                continue;// goes back to the start of the loop in case of wrong input
+
+            }
+            meters = scanner.nextDouble();// reads the input
+
+            if (meters<0){
+                System.out.println("Meters cannot be negative. Please enter a valid number:");
+                scanner.next();
+                continue;// start the loop again
+            }
+
+            break;// if input is valid, stop the loop
+
+
+        }
+
+
                 double kilometers = meters/1000;
                 double result = kilometers;
                 System.out.println("Result is: " + meters + " M " +  "= " + result + "KM");
@@ -93,18 +113,12 @@ public class ConverterApp {
                 System.out.println("Converted at: " + dateTime);
 
 
-        } while (!scanner.hasNextDouble());{
-
-            System.out.println("Invalid meters. Please enter a valid number");
-            scanner.next();
-            System.out.println("Enter meters: ");
 
         }
-        double meters = scanner.nextDouble();//checks input before reading it. important, otherwise it will display an error message if it is not there
 
 
 
-    }
+
 
     static void currencyConverter(Scanner scanner){
 
@@ -132,7 +146,7 @@ public class ConverterApp {
             System.out.println("Enter amount in SEK: ");
 
         }
-        double amountSEK = scanner.nextDouble();
+        //double amountSEK = scanner.nextDouble();
 
 
 
