@@ -102,9 +102,7 @@ public class ConverterApp {
 
             break;// if input is valid, stop the loop
 
-
         }
-
 
                 double kilometers = meters/1000;
                 double result = kilometers;
@@ -112,23 +110,37 @@ public class ConverterApp {
                 LocalDateTime dateTime = LocalDateTime.now();
                 System.out.println("Converted at: " + dateTime);
 
-
-
         }
-
-
 
 
 
     static void currencyConverter(Scanner scanner){
 
-        do {
+        double amountSEK;
 
 
-        System.out.println("Input the amount in SEK");
+        while (true){
+
+            System.out.println("Input the amount in SEK");
+
+            if (!scanner.hasNextDouble()){
+                System.out.println("Invalid amount in SEK. Please enter a valid amount: ");
+                scanner.next();
+                continue;
+            }
+
+            amountSEK = scanner.nextDouble();
+
+            if (amountSEK<0){
+                System.out.println("The amount cannot be negative. Please enter a valid amount");
+                scanner.next();
+                continue;
+            }
+            break;//important, otherwise, i will get error message because the loop never stops
+        }
+
         double exchangeRateUSD = 0.11;
         double exchangeRateEUR = 0.09;
-        double amountSEK = scanner.nextDouble();
         double amountUSD = amountSEK * exchangeRateUSD;
         double amountEUR = amountSEK * exchangeRateEUR;
         double resultUSD = amountUSD;
@@ -140,17 +152,9 @@ public class ConverterApp {
         LocalDateTime dateTime = LocalDateTime.now();
         System.out.println("Converted at: " + dateTime);
 
-        } while (!scanner.hasNextDouble());{
-            System.out.println("Invalid amount in SEK. Please enter a valid number");
-            scanner.next();
-            System.out.println("Enter amount in SEK: ");
 
         }
-        //double amountSEK = scanner.nextDouble();
 
-
-
-    }
 
     static void weightConverter(Scanner scanner){
         System.out.println("Input the weight in KG:");
